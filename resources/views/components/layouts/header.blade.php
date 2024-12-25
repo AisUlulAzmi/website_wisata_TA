@@ -16,8 +16,11 @@
                                 <ul id="navigation">
                                     <li><a class="active" href="index.html">home</a></li>
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="travel_destination.html">Destination</a></l/li> <li><a
-                                            href="news.html">News</a></l/li> </ul> </nav> </div> </div> <div
+                                    <li><a href="travel_destination.html">Destination</a></li> 
+                                    <li><a href="travel_destination.html">Foods</a></li> 
+                                    <li><a href="travel_destination.html">Hotel</a></li> 
+                                    <li><a
+                                            href="news.html">News</a></li> </ul> </nav> </div> </div> <div
                                             class="col-xl-4 col-lg-4 d-none d-lg-block">
                                         <div class="social_wrap d-flex align-items-center justify-content-end">
                                             <div class="number">
