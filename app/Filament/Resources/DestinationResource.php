@@ -22,14 +22,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class DestinationResource extends Resource
 {
-        // 'name',
-        // 'description',
-        // 'image',
-        // 'operation_hours_start',
-        // 'operation_hours_end',
-        // 'stars',
-        // 'is_published',
-
     protected static ?string $model = Destination::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-asia-australia';
