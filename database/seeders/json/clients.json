@@ -1,0 +1,29 @@
+[
+	{
+		"id" : 1,
+		"name" : "Kemenparekraf",
+		"image" : "01JG11Q7SYJ147X3XVQ92NXHQT.png",
+		"created_at" : "2024-12-26 15:35:52",
+		"updated_at" : "2024-12-26 15:35:52",
+		"link" : "https:\/\/kemenparekraf.go.id\/",
+		"is_published" : 1
+	},
+	{
+		"id" : 2,
+		"name" : "Kabupaten Tegal",
+		"image" : "01JG11SRW9FG1B0ZVR7DKGWDWR.png",
+		"created_at" : "2024-12-26 15:37:15",
+		"updated_at" : "2024-12-26 15:37:15",
+		"link" : "https:\/\/www.tegalkab.go.id\/",
+		"is_published" : 1
+	},
+	{
+		"id" : 3,
+		"name" : "Perhutani",
+		"image" : "01JG11TRQY23RWAH6G3WH86KC5.png",
+		"created_at" : "2024-12-26 15:37:47",
+		"updated_at" : "2024-12-26 15:37:47",
+		"link" : "https:\/\/perhutani.co.id\/",
+		"is_published" : 1
+	}
+]
