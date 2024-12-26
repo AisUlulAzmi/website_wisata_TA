@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             Destination::class,
             Clients::class,
             News::class,
+            Slideshow::class,
             UsersSeeder::class,
         ]);
     }

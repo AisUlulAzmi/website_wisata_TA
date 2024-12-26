@@ -2,12 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\GaleryResource\Pages;
-use App\Filament\Resources\GaleryResource\RelationManagers;
-use App\Models\Galery;
+use App\Filament\Resources\SlideshowResource\Pages;
+use App\Filament\Resources\SlideshowResource\RelationManagers;
+use App\Models\Slideshow;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -17,21 +18,27 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class GaleryResource extends Resource
+class SlideshowResource extends Resource
 {
-    protected static ?string $model = Galery::class;
+    protected static ?string $model = Slideshow::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $navigationGroup = 'Wisata';
 
-    protected static ?string $modelLabel = "Galeri";
+    protected static ?string $modelLabel = "Slideshow";
 
     public static function form(Form $form): Form
     {
         return $form
             ->columns(1)
             ->schema([
+                TextInput::make('title')
+                    ->label('Judul')
+                    ->required(),
+                TextInput::make('caption')
+                    ->label('Caption')
+                    ->required(),
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
@@ -53,6 +60,10 @@ class GaleryResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar'),
+                TextColumn::make('title')
+                    ->label('Judul')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('is_published')
                     ->label('Dipublikasikan')
                     ->formatStateUsing(fn (string $state) => $state == 1 ? 'Ya' : 'Tidak')
@@ -85,9 +96,9 @@ class GaleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListGaleries::route('/'),
-            'create' => Pages\CreateGalery::route('/create'),
-            'edit' => Pages\EditGalery::route('/{record}/edit'),
+            'index' => Pages\ListSlideshows::route('/'),
+            'create' => Pages\CreateSlideshow::route('/create'),
+            'edit' => Pages\EditSlideshow::route('/{record}/edit'),
         ];
     }
 }
