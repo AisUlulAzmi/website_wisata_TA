@@ -14,7 +14,8 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a class="active" href="index.html">home</a></li>
+                                    <li><a href="{{url('/')}}">Home</a></li>
+                                    <li><a href="index.html">Galery</a></li>
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="travel_destination.html">Destination</a></li> 
                                     <li><a href="travel_destination.html">Foods</a></li> 

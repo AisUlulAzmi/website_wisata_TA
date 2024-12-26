@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ClientsResource\Pages;
-use App\Filament\Resources\ClientsResource\RelationManagers;
-use App\Models\Clients;
+use App\Filament\Resources\GaleryResource\Pages;
+use App\Filament\Resources\GaleryResource\RelationManagers;
+use App\Models\Galery;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -18,27 +17,21 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ClientsResource extends Resource
+class GaleryResource extends Resource
 {
-    protected static ?string $model = Clients::class;
+    protected static ?string $model = Galery::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $navigationGroup = 'Wisata';
 
-    protected static ?string $modelLabel = "Klien";
+    protected static ?string $modelLabel = "Galeri";
 
     public static function form(Form $form): Form
     {
         return $form
             ->columns(1)
             ->schema([
-                TextInput::make('name')
-                    ->label('Nama')
-                    ->required(),
-                TextInput::make('link')
-                    ->label('Link External')
-                    ->required(),
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
@@ -60,10 +53,6 @@ class ClientsResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar'),
-                TextColumn::make('name')
-                    ->label('Nama')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('is_published')
                     ->label('Dipublikasikan')
                     ->formatStateUsing(fn (string $state) => $state == 1 ? 'Ya' : 'Tidak')
@@ -76,8 +65,6 @@ class ClientsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -96,9 +83,9 @@ class ClientsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListClients::route('/'),
-            'create' => Pages\CreateClients::route('/create'),
-            'edit' => Pages\EditClients::route('/{record}/edit'),
+            'index' => Pages\ListGaleries::route('/'),
+            'create' => Pages\CreateGalery::route('/create'),
+            'edit' => Pages\EditGalery::route('/{record}/edit'),
         ];
     }
 }
