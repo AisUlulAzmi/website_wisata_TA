@@ -24,7 +24,10 @@ class HomePage extends Controller
             ->with('data', Destination::where('is_published', true)->paginate(4));
     }
 
-    function destinasiShow() {
-        
+    function destinasiShow($slug) {
+        return view('destination_show')
+            ->with('show_route', 'destinasi.show')
+            ->with('others', Destination::where('is_published', true)->limit(3)->get())
+            ->with('data', Destination::where('slug', $slug)->firstOrFail());
     }
 }

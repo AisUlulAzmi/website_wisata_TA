@@ -5,7 +5,7 @@
                 <div class="footer_widget">
                     <div class="footer_logo">
                         <a href="#">
-                            <img src="img/footer_logo.png" alt="" width="50px">
+                            <img src="{{url('img/footer_logo.png')}}" alt="" width="50px">
                         </a>
                     </div>
                     <p>Jl. Objek Wisata Guci, Kemaron, Tuwel, Kec. Bojong <br> Kabupaten Tegal, Jawa Tengah 52465 <br>

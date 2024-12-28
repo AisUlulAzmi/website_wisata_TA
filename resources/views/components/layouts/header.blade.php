@@ -5,8 +5,8 @@
                 <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo">
-                            <a href="index.html">
-                                <img src="img/logo.png" alt="" width="50px">
+                            <a href="{{route('home')}}">
+                                <img src="{{url('img/logo.png')}}" alt="" width="50px">
                             </a>
                         </div>
                     </div>
