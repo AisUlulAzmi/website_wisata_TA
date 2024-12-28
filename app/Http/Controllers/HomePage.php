@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slideshow;
 use App\Models\Destination;
+use App\Models\Foods;
 use App\Models\Hotel;
 use App\Models\News;
 use Illuminate\Http\Request;
@@ -57,5 +58,18 @@ class HomePage extends Controller
         ->with('show_route', 'penginapan.show')
             ->with('others', Hotel::where('is_published', true)->limit(3)->get())
             ->with('data', Hotel::where('slug', $slug)->firstOrFail());
+    }
+
+    function kuliner() {
+        return view('foods')
+            ->with('show_route', 'kuliner.show')
+            ->with('data', Foods::where('is_published', true)->paginate(4));
+    }
+
+    function kulinerShow($slug) {
+        return view('foods_show')
+        ->with('show_route', 'kuliner.show')
+            ->with('others', Foods::where('is_published', true)->limit(3)->get())
+            ->with('data', Foods::where('slug', $slug)->firstOrFail());
     }
 }

@@ -2,7 +2,7 @@
 @section('title', 'Berita')
 
 @section('content')
-<div class="popular_places_area">
+<div class="popular_places_area" style="margin-bottom: 0px !important; padding-bottom: 0px !important">
     <div class="container pb-5 mb-5">
         <div class="row">
             <div class="col-md-12">

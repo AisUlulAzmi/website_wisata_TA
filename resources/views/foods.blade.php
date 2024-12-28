@@ -1,5 +1,5 @@
 @extends('components.app')
-@section('title', 'Penginapan')
+@section('title', 'Kuliner')
 
 @section('content')
 <div class="popular_places_area" style="margin-bottom: 0px !important; padding-bottom: 0px !important">
@@ -17,9 +17,6 @@
                             </div>
                             <div class="place_info">
                                 <a href="{{route($show_route, $d->slug)}}"><h3>{{$d->name}}</h3></a>
-                                <p>
-                                    Jam Operasional {{$d->operation_hours_start}} sampai {{$d->operation_hours_end}}
-                                </p>
                                 <div class="rating_days d-flex justify-content-between">
                                     <span class="d-flex justify-content-center align-items-center">
                                         @for ($i = 1; $i <= $d->stars; $i++)
@@ -54,8 +51,10 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>Penginapan</h3>
-                    <p>Pilihan Populer Penginapan Untuk Istirahat</p>
+                    <h3>Kuliner</h3>
+                    <p>
+                        Pilihan Populer Kuliner wisata Guciku
+                    </p>
                 </div>
             </div>
         </div>
