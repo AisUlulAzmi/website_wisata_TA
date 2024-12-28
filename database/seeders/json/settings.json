@@ -1,0 +1,72 @@
+[
+	{
+		"id" : 1,
+		"key" : "banner-image",
+		"value" : "01JG14QNHX0MNS1GKH088VXZPC.png",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:28:32"
+	},
+	{
+		"id" : 2,
+		"key" : "video-overlay-image",
+		"value" : "01JG14STQF6MT05KZGGQPSA7E3.png",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:29:42"
+	},
+	{
+		"id" : 3,
+		"key" : "video-youtube",
+		"value" : "https:\/\/www.youtube.com\/watch?v=xfEFVSshTok",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:33:30"
+	},
+	{
+		"id" : 4,
+		"key" : "whyus-1-title",
+		"value" : "Vision",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:33:48"
+	},
+	{
+		"id" : 5,
+		"key" : "whyus-2-title",
+		"value" : "Mision",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:33:56"
+	},
+	{
+		"id" : 6,
+		"key" : "whyus-3-title",
+		"value" : "Values",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:34:05"
+	},
+	{
+		"id" : 7,
+		"key" : "whyus-1-caption",
+		"value" : "Menjadi destinasi pariwisata alam terdepan yang menawarkan pengalaman unik dan memuaskan bagi para pengunjung melalui keindahan pegunungan, pemandian air panas yang menyegarkan, dan taman yang asri, serta berkontribusi dalam pelestarian lingkungan dan pemberdayaan masyarakat lokal.",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:34:15"
+	},
+	{
+		"id" : 8,
+		"key" : "whyus-2-caption",
+		"value" : "Menyediakan fasilitas pariwisata yang berkualitas dan ramah lingkungan, memberdayakan masyarakat lokal, mempromosikan kekayaan budaya dan tradisi, serta terus berinovasi untuk meningkatkan daya tarik destinasi dan memastikan pelayanan prima guna mencapai kepuasan pengunjung yang maksimal.",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:34:27"
+	},
+	{
+		"id" : 9,
+		"key" : "whyus-3-caption",
+		"value" : "menyediakan pengalaman yang menyegarkan dan memuaskan melalui keindahan pegunungan, kesegaran pemandian air panas, dan keasrian taman, serta mendukung pelestarian lingkungan dan pemberdayaan masyarakat lokal.",
+		"created_at" : null,
+		"updated_at" : "2024-12-26 16:34:40"
+	},
+	{
+		"id" : 12,
+		"key" : "aboutus-content",
+		"value" : "<p>Sejarah Wisata Guci merujuk kepada sebuah guci pemberian Sunan Gunung Jati dan diisi dengan doanya untuk meringankan wabah dan bencana yang menimpa masyarakat pada saat itu. Obyek Wisata Guci yang menawarkan air panas dari kaki Gunung Slamet ini memang menjadi andalan pemerintah Kabupaten Tegal untuk menarik Wisatawan dari berbagai daerah. Menurut sejarah, nama Guci berasal dari zaman Walisongo untuk menyebarkan Agama Islam di Jawa Tengah bagian Barat, khususnya di sekitar Tegal diutuslah seorang Wali.<\/p><p>Pada tahun 1974, pemandian air panas ini dibuka untuk umum dalam ruangan yang masih alami dan belum diubah sampai sekarang. Wisatawan masih mandi dibawah mata air panas yang konon dimiliki oleh para wanita Nyai Roro Kidul, yang bertugas menguasai disebelah Utara Gunung Slamet atau lebih dikenal Kali Gung. Dinamakan Kali Gung ini karena bersinggungan dengan sumber besar yaitu aliran mata air panas yang melimpah sepanjang tahun. Dayang Nyai Roro Kidul bernama Nyai Rantensari yang berwujud Naga, maka dipancuran 13 tersebut dibuat patung Naga menyerupai kekuatan mistis yang bertahta di kawasan Objek Wisata Guci.<\/p><h2>profil guci<\/h2><p>Wisata Guci merupakan taman wisata air panas yang ada di daerah Tegal. Kawasan ini berada di hamparan bukit berada mengelilingi taman wisata Guci dan mengelilingi Gunung Slamet yang menjulang tinggi di hadapan mata sehingga membuat suasana semakin nyaman. Untuk itu, menarik untuk membahas lebih dalam mengenai profil wisata Guci.<\/p><h2>Waktu Kunjungan<\/h2><p>Kawasan wisata Guci Tegal terbuka setiap hari tanpa batasan jam operasional. Namun, untuk pengalaman yang lebih nyaman, disarankan datang lebih awal, sekitar pukul 07.00. Dengan datang lebih pagi, wisatawan dapat menikmati suasana yang lebih sejuk dan tenang sebelum area wisata menjadi ramai. Selain itu, waktu pagi juga memberikan kesempatan untuk menjelajahi lebih banyak tempat di Guci tanpa terburu-buru.<\/p><h2>Harga Tiket Masuk<\/h2><p>Harga tiket masuk ke kawasan wisata Guci adalah Rp13.000 per orang. Jika Anda ingin menikmati pemandian air panas, tiket tambahan dikenakan sebesar Rp20.000 per orang untuk Pancuran 13. Biaya parkir juga berlaku, dengan tarif Rp5.000 untuk motor dan Rp10.000 untuk mobil. Tiket masuk ini memungkinkan Anda menikmati berbagai fasilitas yang tersedia di kawasan wisata Guci, termasuk pemandian air panas, taman bermain, dan area berkemah. Dengan fasilitas yang lengkap dan pemandangan alam yang indah, Guci menjadi destinasi yang ideal untuk liburan keluarga dan teman-teman.<\/p>",
+		"created_at" : null,
+		"updated_at" : "2024-12-28 10:01:17"
+	}
+]
