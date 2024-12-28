@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slideshow;
 use App\Models\Destination;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class HomePage extends Controller
@@ -29,5 +30,18 @@ class HomePage extends Controller
             ->with('show_route', 'destinasi.show')
             ->with('others', Destination::where('is_published', true)->limit(3)->get())
             ->with('data', Destination::where('slug', $slug)->firstOrFail());
+    }
+
+    function beritaShow($slug) {
+        return view('news_show')
+        ->with('show_route', 'berita.show')
+            ->with('others', News::where('is_published', true)->limit(3)->get())
+            ->with('data', News::where('slug', $slug)->firstOrFail());
+    }
+
+    function berita() {
+        return view('news')
+            ->with('show_route', 'berita.show')
+            ->with('data', News::where('is_published', true)->paginate(4));
     }
 }
