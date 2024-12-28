@@ -15,6 +15,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Get;
 
 class SettingsResource extends Resource
 {
@@ -26,24 +29,6 @@ class SettingsResource extends Resource
 
     protected static ?string $modelLabel = "Pengaturan";
 
-    protected static array $should_text_input = [
-        'whyus-1-title',
-        'whyus-2-title',
-        'whyus-3-title',
-        'video-youtube'
-    ];
-
-    protected static array $should_textarea = [
-        'whyus-1-caption',
-        'whyus-2-caption',
-        'whyus-3-caption'
-    ];
-
-    protected static array $should_image_upload = [
-        'banner-image',
-        'video-overlay-image'
-    ];
-
     public static function form(Form $form): Form
     {
         return $form
@@ -52,19 +37,51 @@ class SettingsResource extends Resource
                 TextInput::make('key')
                     ->label('Kunci')
                     ->disabled(),
-                
-                TextInput::make('value')
-                    ->label('Nilai')
-                    ->visible(fn($record) => in_array($record->key, static::$should_text_input)),
 
-                Textarea::make('value')
-                    ->label('Nilai')
-                    ->visible(fn($record) => in_array($record->key, static::$should_textarea)),
+                Grid::make(1)
+                    ->schema(function(Get $get):array {
+                        $elements = [];
 
-                FileUpload::make('value')
-                    ->label('Nilai')
-                    ->image()
-                    ->visible(fn($record) => in_array($record->key, static::$should_image_upload)),
+                        switch ($get('key')) {
+                            case 'whyus-1-title':
+                            case 'whyus-2-title':
+                            case 'whyus-3-title':
+                            case 'video-youtube':
+                            default:
+                                $elements = [
+                                    TextInput::make('value')
+                                        ->label('Judul')
+                                ];
+                                break;
+                            
+                            case 'whyus-1-caption':
+                            case 'whyus-2-caption':
+                            case 'whyus-3-caption':
+                                $elements = [
+                                    Textarea::make('value')
+                                        ->label('Caption')
+                                ];
+                                break;
+                            
+                            case 'aboutus-content':
+                                $elements = [
+                                    RichEditor::make('value')
+                                        ->label('Konten')
+                                ];
+                                break;
+
+                            case 'banner-image':
+                            case 'video-overlay-image':
+                                $elements = [
+                                    FileUpload::make('value')
+                                        ->label('Gambar')
+                                        ->image()
+                                ];
+                                break;
+                        }
+
+                        return $elements;
+                    })
             ]);
     }
 

@@ -14,8 +14,14 @@ class HomePage extends Controller
             ->with('slideshow', Slideshow::where('is_published', true)->get());
     }
 
+    function tentang() {
+        return view('about');
+    }
+
     function destinasi() {
-        
+        return view('destination')
+            ->with('show_route', 'destinasi.show')
+            ->with('data', Destination::where('is_published', true)->paginate(4));
     }
 
     function destinasiShow() {

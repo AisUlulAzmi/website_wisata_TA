@@ -7,10 +7,12 @@ use App\Filament\Resources\FoodsResource\RelationManagers;
 use App\Models\Foods;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
@@ -34,8 +36,11 @@ class FoodsResource extends Resource
         return $form
             ->columns(1)
             ->schema([
+                Hidden::make('slug'),
                 TextInput::make('name')
                     ->label('Nama')
+                    ->live(onBlur:true, debounce:500)
+                    ->afterStateUpdated(fn(Set $set, $state) => $set('slug', \Illuminate\Support\Str::slug($state) . '-' . \Illuminate\Support\Str::random(5)))
                     ->required(),
                 RichEditor::make('description')
                     ->label('Deskripsi')

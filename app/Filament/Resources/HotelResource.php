@@ -9,10 +9,12 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Set;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -35,8 +37,11 @@ class HotelResource extends Resource
         return $form
             ->columns(1)
             ->schema([
+                Hidden::make('slug'),
                 TextInput::make('name')
                     ->label('Nama')
+                    ->live(onBlur:true, debounce:500)
+                    ->afterStateUpdated(fn(Set $set, $state) => $set('slug', \Illuminate\Support\Str::slug($state) . '-' . \Illuminate\Support\Str::random(5)))
                     ->required(),
                 RichEditor::make('description')
                     ->label('Deskripsi')

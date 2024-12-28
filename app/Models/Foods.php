@@ -8,6 +8,7 @@ class Foods extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'image',
         'stars',
