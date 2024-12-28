@@ -1,5 +1,5 @@
 @extends('components.app')
-@section('title', 'Destinasi')
+@section('title', $data->title)
 
 @section('content')
 <div class="destination_details_info">
