@@ -14,72 +14,22 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($destinations as $d)
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="img/destination/1.png" alt="">
+                            <img src="{{ Storage::url($d->image) }}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Pasar Oleh-Oleh <a href="Pasar.html">  01 Places</a> </p>
-                            
+                            <a href="{{route('destinasi.show', $d->slug)}}">
+                                <p class="d-flex align-items-center">
+                                    {{$d->name}}
+                                </p>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Pancuran 13 Guci <a href="pancuran_13.html">  02 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/3.png" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">The Baron Hill <a href="the_baron.html">  03 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/4.png" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Duta Wisata <a href="duta_wisata.html">  04 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/5.png" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Curug Serwiti <a href="Curug_Seriti.html">  05 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/6.png" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Guci Forest <a href="guci_forest.html">  06 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -89,42 +39,24 @@
 @push('banner')
 <div class="slider_area">
     <div class="slider_active owl-carousel">
-        <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-12 col-md-12">
-                        <div class="slider_text text-center">
-                            <h3>GUCI</h3>
-                            <p>tempat wisata di kawasan Taman Wisata Alam Guci, menghadirkan suasana sejuk dan bikin adem.</p>
+        @foreach ($slideshow as $s)
+            <div class="single_slider  d-flex align-items-center overlay" style="background-image: url({{ Storage::url($s->image) }});">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 col-md-12">
+                            <div class="slider_text text-center">
+                                <h3>
+                                    {{ $s->title }}
+                                </h3>
+                                <p>
+                                    {{ $s->caption }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-12 col-md-12">
-                        <div class="slider_text text-center">
-                            <h3>GUCI</h3>
-                            <p>cocok wisata keluarga selama berada di Kabupaten Tegal, Jawa Tengah.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single_slider  d-flex align-items-center slider_bg_3 overlay">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-12 col-md-12">
-                        <div class="slider_text text-center">
-                            <h3>GUCI</h3>
-                            <p>ketenangan dan menyegarkan diri dari kepenatan sehari-hari.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endpush

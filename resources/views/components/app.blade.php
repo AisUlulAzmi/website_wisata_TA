@@ -20,7 +20,7 @@
     
     @yield('content')
 
-    <div class="video_area video_bg overlay">
+    <div class="video_area overlay" style="background-image: url('{{ Storage::url(\App\Models\Settings::cari('video-overlay-image')) }}')">
         @include('components.layouts.video_area')
     </div>
 

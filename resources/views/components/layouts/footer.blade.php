@@ -46,12 +46,13 @@
                         Popular destination
                     </h3>
                     <ul class="links double_links">
-                        <li><a href="Pasar.html">Pasar Oleh-Oleh</a></li>
-                        <li><a href="pancuran_13.html">Pancuran 13 Guci</a></li>
-                        <li><a href="the_baron.html">The Baron Hill</a></li>
-                        <li><a href="Curug_Seriti.html">Curug Serwiti</a></li>
-                        <li><a href="duta_wisata.html">Duta Wisata</a></li>
-                        <li><a href="guci_forest.html">Guci Forest</a></li>
+                        @foreach (\App\Models\Destination::where('is_published', true) -> get() as $d)
+                            <li>
+                                <a href="{{route('destinasi.show', $d->slug)}}">
+                                    {{$d->name}}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -61,36 +62,13 @@
                         Koleksi Foto
                     </h3>
                     <div class="instagram_feed">
+                        @foreach (\App\Models\Galery::where('is_published', true) -> limit(6) -> get() as $g)
                         <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/1.png" alt="">
+                            <a href="{{route('galeri')}}">
+                                <img src="{{Storage::url($g->image)}}" alt="">
                             </a>
                         </div>
-                        <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/2.png" alt="">
-                            </a>
-                        </div>
-                        <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/3.png" alt="">
-                            </a>
-                        </div>
-                        <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/4.png" alt="">
-                            </a>
-                        </div>
-                        <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/5.png" alt="">
-                            </a>
-                        </div>
-                        <div class="single_insta">
-                            <a href="#">
-                                <img src="img/instagram/6.png" alt="">
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

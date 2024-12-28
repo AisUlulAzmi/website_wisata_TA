@@ -7,6 +7,7 @@ use App\Filament\Resources\DestinationResource\RelationManagers;
 use App\Models\Destination;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -19,6 +20,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Set;
 
 class DestinationResource extends Resource
 {
@@ -35,8 +37,11 @@ class DestinationResource extends Resource
         return $form
             ->columns(1)
             ->schema([
+                Hidden::make('slug'),
                 TextInput::make('name')
                     ->label('Nama')
+                    ->live(onBlur:true, debounce:500)
+                    ->afterStateUpdated(fn(Set $set, $state) => $set('slug', \Illuminate\Support\Str::slug($state) . '-' . \Illuminate\Support\Str::random(5)))
                     ->required(),
                 RichEditor::make('description')
                     ->label('Deskripsi')
