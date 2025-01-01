@@ -2,40 +2,86 @@
 @section('title', 'Berita')
 
 @section('content')
-<div class="popular_places_area" style="margin-bottom: 0px !important; padding-bottom: 0px !important">
-    <div class="container pb-5 mb-5">
+<section class="blog_area section-padding">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
                     
                     @foreach ($data as $d)
-                    <div class="col-lg-6 col-md-12">
-                        <div class="single_place">
-                            <div class="thumb">
-                                <img src="{{Storage::url($d->image)}}" alt="">
-                            </div>
-                            <div class="place_info">
-                                <a href="{{route($show_route, $d->slug)}}"><h3>{{$d->title}}</h3></a>
-                                <div class="rating_days d-flex justify-content-between">
-                                    <div class="days">
-                                        <i class="fa fa-clock-o"></i>
-                                        <a href="#">
-                                            {{$d->created_at->diffForHumans()}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{Storage::url($d->image)}}" alt="">
+                            <a href="{{route($show_route, $d->slug)}}" class="blog_item_date">
+                                <h3>
+                                    {{$d->created_at->format('d')}}
+                                </h3>
+                                <p>
+                                    {{$d->created_at->format('M')}}
+                                </p>
+                            </a>
                         </div>
-                    </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{{route($show_route, $d->slug)}}">
+                                <h2>
+                                    {{$d->title}}
+                                </h2>
+                            </a>
+                            <p>
+                                {{ Str::limit(strip_tags($d->content), 200, '...') }}
+                            </p>
+                            <ul class="blog-info-link">
+                                <li><span href="#"><i class="fa fa-user"></i>Azmi, Guciku Tegal</span></li>
+                            </ul>
+                        </div>
+                    </article>
                     @endforeach
 
                     {{$data->links()}}
+                    
+                </div>
             </div>
-
-            <br><br>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                
+                    <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Recent Post</h3>
+                        
+                        @foreach ($recent_posts as $rp)
+                        <div class="media post_item">
+                            <img src="{{Storage::url($rp->image)}}" style="width: 90px" alt="post">
+                            <div class="media-body">
+                                <a href="{{route($show_route, $rp->slug)}}">
+                                    <h3>
+                                        {{$rp->title}}
+                                    </h3>
+                                </a>
+                                <p>
+                                    {{\Carbon\Carbon::parse($rp->created_at)->diffForHumans()}}
+                                </p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </aside>
+                
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Category</h4>
+                        <ul class="list cat-list">
+                            @foreach ($categories as $key => $cat)
+                            <li>
+                                <a href="{{route('berita', ['category' => $key])}}" class="d-flex">
+                                    <p>{{$cat}} ({{\App\Models\News::where('category', $key) -> count()}})</p>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </aside>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 @endsection
 
 @push('banner')

@@ -45,6 +45,9 @@ class FoodsResource extends Resource
                 RichEditor::make('description')
                     ->label('Deskripsi')
                     ->required(),
+                TextInput::make('video_youtube')
+                    ->placeholder('https://www.youtube.com/watch?v=xxxxxxxxxxx')
+                    ->label('Video Youtube'),
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()

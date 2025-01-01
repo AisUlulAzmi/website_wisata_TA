@@ -27,6 +27,14 @@
         </div>
     </div>
 </div>
+
+<div class="travel_variation_area">
+    @include('components.layouts.why_us')
+</div>
+
+<div class="recent_trip_area">
+    @include('components.layouts.clients')
+</div>
 @endsection
 
 @push('banner')

@@ -34,6 +34,18 @@
         </div>
     </div>
     <!-- popular_destination_area_end  -->
+
+    <div class="video_area overlay" style="background-image: url('{{ Storage::url(\App\Models\Settings::cari('video-overlay-image')) }}')">
+        @include('components.layouts.video_area')
+    </div>
+
+    <div class="travel_variation_area">
+        @include('components.layouts.why_us')
+    </div>
+
+    <div class="recent_trip_area">
+        @include('components.layouts.clients')
+    </div>
 @endsection
 
 @push('banner')

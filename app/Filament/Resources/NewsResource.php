@@ -29,6 +29,23 @@ class NewsResource extends Resource
         return $form
             ->columns(1)
             ->schema([
+                Forms\Components\Select::make('category')
+                    ->label('Kategori')
+                    ->searchable()
+                    ->required()
+                    ->options([
+                        'destinasi' => 'Destinasi',
+                        'wisata' => 'Wisata',
+                        'kuliner' => 'Kuliner',
+                        'hotel' => 'Hotel',
+                        'event' => 'Event',
+                        'tips' => 'Tips',
+                        'berita' => 'Berita',
+                        'promo' => 'Promo',
+                        'umum' => 'Umum',
+                        'lainnya' => 'Lainnya',
+                    ])
+                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->label('Judul')
                     ->live(onBlur:true, debounce:500)

@@ -16,6 +16,12 @@
     </div>
 </div>
 
+<div class="video_area overlay" style="background-image: url('{{ Storage::url(\App\Models\Settings::cari('video-overlay-image')) }}')">
+    @include('components.layouts.client_video_area', ['link' => $data->video_youtube])
+</div>
+
+<br><br><br>
+
 <div class="popular_places_area" style="background-color: white !important; margin-top: 0px !important; padding-top: 0px !important; margin-bottom: 0px !important; padding-bottom: 0px !important">
     <div class="container">
         <div class="row justify-content-center">
@@ -56,8 +62,7 @@
     </div>
 </div>
 
-<br><br>
-<br><br>
+<br><br><br>
 @endsection
 
 @push('banner')

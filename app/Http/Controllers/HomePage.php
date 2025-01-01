@@ -12,6 +12,19 @@ use Illuminate\Http\Request;
 
 class HomePage extends Controller
 {
+    protected static $news_categories = [
+        'destinasi' => 'Destinasi',
+        'wisata' => 'Wisata',
+        'kuliner' => 'Kuliner',
+        'hotel' => 'Hotel',
+        'event' => 'Event',
+        'tips' => 'Tips',
+        'berita' => 'Berita',
+        'promo' => 'Promo',
+        'umum' => 'Umum',
+        'lainnya' => 'Lainnya',
+    ];
+
     function index() {
         return view('index')
             ->with('destinations', Destination::where('is_published', true)->limit(6)->get())
@@ -36,16 +49,48 @@ class HomePage extends Controller
     }
 
     function beritaShow($slug) {
+        $previous_post = News::where('is_published', true)
+                            ->where('id', '<', News::where('slug', $slug)->firstOrFail()->id)
+                            ->orderBy('id', 'desc')
+                            ->first();
+
+        $next_post = News::where('is_published', true)
+                            ->where('id', '>', News::where('slug', $slug)->firstOrFail()->id)
+                            ->orderBy('id', 'asc')
+                            ->first();
+
+        $recent_posts = News::where('is_published', true)
+                            ->inRandomOrder()
+                            ->limit(4)
+                            ->get();
+
         return view('news_show')
-        ->with('show_route', 'berita.show')
+            ->with('previous_post', $previous_post)
+            ->with('next_post', $next_post)
+            ->with('show_route', 'berita.show')
+            ->with('recent_posts', $recent_posts)
+            ->with('categories', self::$news_categories)
             ->with('others', News::where('is_published', true)->limit(3)->get())
             ->with('data', News::where('slug', $slug)->firstOrFail());
     }
 
-    function berita() {
+    function berita(Request $request) {
+        $news = News::where('is_published', true)
+                    ->when($request->has('category'), function($query) use ($request) {
+                        return $query->where('category', $request->category);
+                    })
+                    ->paginate(4);
+        
+        $recent_posts = News::where('is_published', true)
+                            ->inRandomOrder()
+                            ->limit(4)
+                            ->get();
+
         return view('news')
+            ->with('categories', self::$news_categories)
+            ->with('recent_posts', $recent_posts)
             ->with('show_route', 'berita.show')
-            ->with('data', News::where('is_published', true)->paginate(4));
+            ->with('data', $news);
     }
 
     function penginapan() {

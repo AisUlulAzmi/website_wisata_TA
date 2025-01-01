@@ -15,5 +15,6 @@ class Hotel extends Model
         'operation_hours_end',
         'stars',
         'is_published',
+        'video_youtube'
     ];
 }

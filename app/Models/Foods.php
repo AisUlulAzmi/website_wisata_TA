@@ -13,5 +13,6 @@ class Foods extends Model
         'image',
         'stars',
         'is_published',
+        'video_youtube'
     ];
 }
