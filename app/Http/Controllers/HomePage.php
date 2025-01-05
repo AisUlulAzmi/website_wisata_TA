@@ -123,4 +123,11 @@ class HomePage extends Controller
         return view('galery')
         ->with('data', Galery::where('is_published', true)->paginate(4));        
     }
+
+    function galeriShow($slug) {
+        $galery = Galery::where('slug', $slug)->firstOrFail();
+        return view('galery_show')
+            ->with('galery', $galery)
+            ->with('data', $galery->SubGalery->where('is_published', true));
+    }
 }

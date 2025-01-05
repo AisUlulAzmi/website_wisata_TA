@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Galery extends Model
+class SubGalery extends Model
 {
     protected $fillable = [
+        'galery_id',
         'title',
-        'description',
         'image',
-        'slug',
+        'description',
         'is_published',
     ];
 
-    function SubGalery() {
-        return $this->hasMany(SubGalery::class, 'galery_id', 'id');
+    function Galery() {
+        return $this->hasOne(Galery::class, 'id', 'galery_id');
     }
 }

@@ -1,56 +1,38 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\GaleryResource\RelationManagers;
 
-use App\Filament\Resources\GaleryResource\Pages;
-use App\Filament\Resources\GaleryResource\RelationManagers;
-use App\Models\Galery;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Forms\Set;
-use Filament\Resources\Resource;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class GaleryResource extends Resource
+class SubGaleryRelationManager extends RelationManager
 {
-    protected static ?string $model = Galery::class;
+    protected static string $relationship = 'SubGalery';
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
-
-    protected static ?string $navigationGroup = 'Wisata';
-
-    protected static ?string $modelLabel = "Galeri";
-
-    public static function form(Form $form): Form
+    public function form(Form $form): Form
     {
         return $form
             ->columns(1)
             ->schema([
-                Hidden::make('slug'),
-                TextInput::make('title')
+                Forms\Components\TextInput::make('title')
+                    ->required()
                     ->label('Judul')
-                    ->live(onBlur:true, debounce:500)
-                    ->afterStateUpdated(fn(Set $set, $state) => $set('slug', \Illuminate\Support\Str::slug($state)))
-                    ->required(),
-                Textarea::make('description')
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
                     ->label('Deskripsi')
                     ->required(),
-                FileUpload::make('image')
+                Forms\Components\FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
                     ->required(),
-                Select::make('is_published')
+                Forms\Components\Select::make('is_published')
                     ->label('Dipublikasikan')
                     ->options([
                         0 => 'Tidak',
@@ -61,9 +43,11 @@ class GaleryResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public function table(Table $table): Table
     {
         return $table
+            ->heading('Sub Galeri')
+            ->recordTitleAttribute('title')
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar'),
@@ -76,9 +60,13 @@ class GaleryResource extends Resource
                     ->badge()
                     ->color(fn ($state) => $state == 1 ? 'success' : 'danger')
                     ->sortable(),
+
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -90,21 +78,5 @@ class GaleryResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\SubGaleryRelationManager::class,
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListGaleries::route('/'),
-            'create' => Pages\CreateGalery::route('/create'),
-            'edit' => Pages\EditGalery::route('/{record}/edit'),
-        ];
     }
 }
