@@ -16,9 +16,11 @@
     </div>
 </div>
 
+@if ($data->video_youtube)
 <div class="video_area overlay" style="background-image: url('{{ Storage::url(\App\Models\Settings::cari('video-overlay-image')) }}')">
     @include('components.layouts.client_video_area', ['link' => $data->video_youtube])
 </div>
+@endif
 
 <br><br><br>
 
