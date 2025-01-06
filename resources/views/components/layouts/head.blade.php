@@ -25,4 +25,5 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
 <link rel="stylesheet" href="{{url('/')}}/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 <!-- <link rel="stylesheet" href="css/responsive.css"> -->
