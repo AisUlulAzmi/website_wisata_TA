@@ -14,6 +14,7 @@ class Hotel extends Model
         'operation_hours_start',
         'operation_hours_end',
         'stars',
+        'link',
         'is_published',
         'video_youtube'
     ];

@@ -18,7 +18,7 @@
                             <div class="place_info">
                                 <a href="{{route($show_route, $d->slug)}}"><h3>{{$d->name}}</h3></a>
                                 <p>
-                                    Jam Operasional {{$d->operation_hours_start}} sampai {{$d->operation_hours_end}}
+                                    Checkin mulai {{$d->operation_hours_start}}, Checkout mulai {{$d->operation_hours_end}}
                                 </p>
                                 <div class="rating_days d-flex justify-content-between">
                                     <span class="d-flex justify-content-center align-items-center">

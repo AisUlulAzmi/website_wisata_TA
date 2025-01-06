@@ -49,15 +49,17 @@ class HotelResource extends Resource
                 TextInput::make('video_youtube')
                     ->placeholder('https://www.youtube.com/watch?v=xxxxxxxxxxx')
                     ->label('Video Youtube'),
+                TextInput::make('link')
+                    ->label('Tautan Hotel'),
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
                     ->required(),
                 TimePicker::make('operation_hours_start')
-                    ->label('Jam Buka')
+                    ->label('Mulai Checkin')
                     ->required(),
                 TimePicker::make('operation_hours_end')
-                    ->label('Jam Tutup')
+                ->label('Mulai Checkout')
                     ->required(),
                 Select::make('stars')
                     ->label('Bintang')

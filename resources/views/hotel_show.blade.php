@@ -10,6 +10,16 @@
                     <h3>Description</h3>
                     
                     {!!($data->description)!!}
+
+                    <p>
+                        Checkin mulai {{$data->operation_hours_start}}, Checkout mulai {{$data->operation_hours_end}}
+                    </p>
+
+                    @if ($data->link)
+                    <a class="btn btn-primary" href="{{$data->link}}">
+                        <i class="fa fa-external-link mr-1"></i> Kunjungi Website
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -44,7 +54,7 @@
                     <div class="place_info">
                         <a href="{{route($show_route, $d->slug)}}"><h3>{{$d->name}}</h3></a>
                         <p>
-                            Jam Operasional {{$d->operation_hours_start}} sampai {{$d->operation_hours_end}}
+                            Checkin mulai {{$d->operation_hours_start}}, Checkout mulai {{$d->operation_hours_end}}
                         </p>
                         <div class="rating_days d-flex justify-content-between">
                             <span class="d-flex justify-content-center align-items-center">
