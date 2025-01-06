@@ -5,6 +5,7 @@
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script> -->
     <!-- JS here -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="{{url('/')}}/js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="{{url('/')}}/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="{{url('/')}}/js/popper.min.js"></script>

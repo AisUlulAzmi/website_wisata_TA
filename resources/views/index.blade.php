@@ -39,6 +39,10 @@
         @include('components.layouts.video_area')
     </div>
 
+    <div class="my-5 container">
+        @include('components.layouts.galery_home')
+    </div>
+
     <div class="travel_variation_area">
         @include('components.layouts.why_us')
     </div>
