@@ -43,9 +43,6 @@ class GaleryResource extends Resource
                     ->live(onBlur:true, debounce:500)
                     ->afterStateUpdated(fn(Set $set, $state) => $set('slug', \Illuminate\Support\Str::slug($state)))
                     ->required(),
-                Textarea::make('description')
-                    ->label('Deskripsi')
-                    ->required(),
                 FileUpload::make('image')
                     ->label('Gambar')
                     ->image()

@@ -25,9 +25,6 @@ class SubGaleryRelationManager extends RelationManager
                     ->required()
                     ->label('Judul')
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->label('Deskripsi')
-                    ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar')
                     ->image()
