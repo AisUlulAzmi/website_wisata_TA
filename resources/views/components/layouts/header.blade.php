@@ -14,14 +14,14 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="{{route('home')}}">Home</a></li>
-                                    <li><a href="{{route('galeri')}}">Galery</a></li>
-                                    <li><a href="{{route('tentang')}}">About</a></li>
-                                    <li><a href="{{route('destinasi')}}">Destination</a></li> 
-                                    <li><a href="{{route('kuliner')}}">Foods</a></li> 
+                                    <li><a href="{{route('home')}}">Beranda</a></li>
+                                    <li><a href="{{route('galeri')}}">Galeri</a></li>
+                                    <li><a href="{{route('tentang')}}">Tentang</a></li>
+                                    <li><a href="{{route('destinasi')}}">Destinasi</a></li> 
+                                    <li><a href="{{route('kuliner')}}">Makanan</a></li> 
                                     <li><a href="{{route('penginapan')}}">Hotel</a></li> 
                                     <li><a
-                                            href="{{route('berita')}}">News</a></li> </ul> </nav> </div> </div> <div
+                                            href="{{route('berita')}}">Berita</a></li> </ul> </nav> </div> </div> <div
                                             class="col-xl-4 col-lg-4 d-none d-lg-block">
                                         <div class="social_wrap d-flex align-items-center justify-content-end">
                                             <div class="number">
