@@ -26,9 +26,6 @@
                             </div>
                             <div class="place_info">
                                 <a href="{{route('galeri.show', $d->slug)}}"><h3>{{$d->title}}</h3></a>
-                                <p>
-                                    {{$d->description}}
-                                </p>
                                 <div class="rating_days d-flex justify-content-between">
                                     <span class="d-flex justify-content-center align-items-center"></span>
                                     <div class="days">
