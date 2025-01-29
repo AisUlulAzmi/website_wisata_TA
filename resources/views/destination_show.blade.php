@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-9">
                 <div class="destination_info">
-                    <h3>Description</h3>
+                    <h3>Deskripsi</h3>
                     
                     {!!($data->description)!!}
                 </div>

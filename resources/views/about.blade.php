@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>About</h3>
+                    <h3>Tentang</h3>
                     <p>Wisata Guci Tegal Jawa tengah</p>
                 </div>
             </div>
